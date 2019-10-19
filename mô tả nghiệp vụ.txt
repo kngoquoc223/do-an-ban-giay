@@ -1,0 +1,18 @@
+Khách hàng đến mua hàng tại cửa hàng nhân viên sẽ tư vấn cho khách hàng các loại giày.Nếu khách hàng thanh toán tại quầy
+sẽ được nhận hoá đơn mua hàng với thông tin bao gồm: họ tên,sđt,ngày,giờ,tên sản phẩm,số lượng,đơn giá,tổng tiền.Hoá đơn sẽ tự
+động lưu vào máy tính của cửa hàng.Nếu loại hàng hết nhân viên sẽ liên hệ kho để xem còn hay không,nếu kho có hàng thì hàng sẽ được
+chuyển từ kho lên,nếu không có khách hàng sẽ đặt hàng tại cửa hàng. Nếu khách hàng muốn lập phiếu đặt (có nghĩa là phiếu đặt hàng bao gồm
+thông tin khách hàng giày giờ sản phẩm muốn đặt và đặt cọc một nửa số tiền của sản phẩm) phiếu đặt đc lưu vào máy của cửa hàng
+Khi cửa hàng hết hàng bộ phận kho sẽ chuyển hàng lên cửa hàng khi chuyển lên cửa hàng bộ phận kho phải nhập phiếu xuất kho bao gồm
+ngày,giờ xuất hàng,tên hàng, số lượng,mã hàng. trên phiếu hàng phải được xác nhận giữa bộ phận kho và bán hàng thông qua chữ ký
+Sẽ có một bộ phận phụ trách bán hàng online sẽ cập nhật các sản phẩm có từ kho lên trang web của cửa hàng.Khi có khách đặt nhân viên 
+sẽ lấy hàng từ kho và lập hoá đơn cho khách 
+Tổng kết mỗi ngày quản lý của bộ phận online và cửa hàng phải nộp báo cáo cho quản lý chủ bao gồm các thông tin về số lượng hàng đã bán
+:loại , tên, số lượng, đơn giá, tổng đơn giá.
+báo cáo của bộ phận online và cửa hàng sẽ được nộp cho chủ cửa hàng để tổng kết
+Khi có yêu cầu nhập hàng từ quản lý chung của cửa hàng thì bộ phận kho sẽ tiến hành chọn nhà cung cấp để đặt mua mặt hàng lựa chọn thông
+qua các tiêu chí như : giá cả, chất lượng hàng. Khi nhận đủ hàng từ nhà cung cấp bộ phận kho sẽ lập hoá đơn và chuyển cho quản lý cửa hàng
+. Các thông tin hoá đơn bao gồm: ngày giờ nhập, tên nhà cung cấp, loại hàng, số lượng, đơn giá, tổng đơn giá.
+Sau khi nhận hàng đã nhập vào trong kho nhân viên kho sẽ tiến hành tạo mã hàng hoá, in và dán mã hàng hoá.
+Cuối ngày bộ phận kho phải nộp báo cáo về quản lý lượng hàng xuất nhập trong ngày. Báo cáo bao gồm các thông tin: ngày giờ nhập,tên nhà
+cung cấp, địa chỉ và sđt nhà cung cấp, số lượng, đơn giá, tổng đơn giá.
