@@ -19,3 +19,13 @@ tên sản phẩm,số lượng,đơn giá,tổng tiền
 -Khi có đơn đặt hàng từ khách nhân viên bán hàng sẽ lập một phiếu đơn đặt(địa chỉ khách, họ tên, sđt, tên cửa hàng) 
 phiếu đơn đặt này sẽ được tổng kết 3 ngày một lần cho bên thứ 3 giao hàng bên thứ 3 sẽ liên hệ với kho để lấy sản phẩm 
 và bộ phận kho sẽ làm một phiếu xuất kho(thông tin sản phẩm, số lượng, đơn giá, tổng tiền)
+-Quy trình nhập hàng vào kho
+nhân viên kho nhận yêu cầu nhập sản phẩm từ quản lý cửa hàng sau đó chọn và liên hệ nhà cung cấp để nhập hàng về khi nhà cung cấp giao hàng
+nhân viên kho sẽ xác nhận đầy đủ đơn hàng và nhập dữ liệu nhập kho vào máy tính dữ liệu gồm: tên sản phẩm, mã sản phẩm(do máy tính tạo), 
+ngày, giờ nhập sản phẩm, đơn giá từng sản phẩm, tổng kết đơn hàng
+-Quy trình xuất hàng ra khỏi kho
+nhân viên kho sẽ nhận yêu cầu xuất hàng từ phiếu đơn đặt mà nhân viên đăng bán sản phẩm tạo ra dựa trên phiếu đơn đặt mà nhân viên kho sẽ
+đưa sản phẩm cho dịch vụ vận chuyển để chuyển tới khách hàng chi tiết về phiếu đơn đặt bao gồm: địa chỉ khách hàng, họ tên, sđt, đơn giá, 
+,phí vận chuyển, tổng tiền. Ngoài ra nhân viên kho khi xuất một đơn đặt phải nhập dữ liệu vào máy tính là phiếu xuất kho bao gồm: mã sản phẩm, 
+tên sản phẩm, số lượng
+-Quy trình đăng bán sản phẩm
