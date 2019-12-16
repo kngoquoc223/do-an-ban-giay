@@ -11,7 +11,6 @@ function getIndex($index, $value="")
 				return trim($_GET[$index]);
 			}
 	$xemL=getIndex("maL");
-	echo $xemL;
 	$xemTH=getIndex("maTH");
 	$numb=6;
 	$page=getIndex("page");
