@@ -24,7 +24,7 @@
 			$check='';
 			if($hot!=0)
 				$check="checked";
-			print_r($giay);
+			//print_r($giay);
 ?>
 <!DOCTYPE html>
 <html >

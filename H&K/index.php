@@ -76,73 +76,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="header-bottom">
 		<div class="container">
 			<div class="top-nav">
-				<ul class="memenu skyblue"><li class="active"><a href="index.html">Home</a></li>
-					<li class="grid"><a href="#">Nam</a>
+				<ul class="memenu skyblue"><li class="active"><a href="index.php">Home</a></li>
+					<li class="grid"><a href="products.php">Thương Hiệu</a>
 						<div class="mepanel">
 							<div class="row">
 								<div class="col1 me-one">
-									<h4>Danh mục</h4>
-									<ul>
-										<li><a href="products.html">Sale</a></li>
-										<li><a href="products.html">Sản phẩm mới</a></li>
-										<li><a href="products.html">Sản phẩm HOT</a></li>
-										<li><a href="products.html">Nam</a></li>
-										<li><a href="products.html">Nữ</a></li>
-										<li><a href="products.html">Về H&K</a></li>
-									</ul>
-								</div>
-								<div class="col1 me-one">
-									<h4>Sản phẩm</h4>
-									<ul>
-										<li><a href="products.html">Life style</a></li>
-										<li><a href="products.html">Running</a></li>
-										<li><a href="products.html">Basketball</a></li>
-										<li><a href="products.html">Gym & training</a></li>
-									</ul>	
-								</div>
-								<div class="col1 me-one">
 									<h4>Thương hiệu</h4>
 									<ul>
-										<li><a href="products.html">Nike</a></li>
-										<li><a href="products.html">Adidas</a></li>
-										<li><a href="products.html">Converse</a></li>
-										<li><a href="products.html">Vans</a></li>
+										<li><a href="products.php?maTH=NB">New Balance</a></li>
+										<li><a href="products.php?maTH=FL">Fila</a></li>
+										<li><a href="products.php?maTH=CV">Converse</a></li>
+										<li><a href="products.php?maTH=VS">Vans</a></li>
 									</ul>	
 								</div>
 							</div>
 						</div>
 					</li>
-					<li class="grid"><a href="#">Nữ</a>
+					<li class="grid"><a href="products.php">Sản phẩm</a>
 						<div class="mepanel">
 							<div class="row">
-								<div class="col1 me-one">
-									<h4>Danh mục</h4>
-									<ul>
-										<li><a href="products.html">Sale</a></li>
-										<li><a href="products.html">Sản phẩm mới</a></li>
-										<li><a href="products.html">Sản phẩm HOT</a></li>
-										<li><a href="products.html">Nam</a></li>
-										<li><a href="products.html">Nữ</a></li>
-										<li><a href="products.html">Về H&K</a></li>
-									</ul>
-								</div>
-								<div class="col1 me-one">
+								<div class="col1 me-one" >
 									<h4>Sản phẩm</h4>
 									<ul>
-										<li><a href="products.html">Life style</a></li>
-										<li><a href="products.html">Running</a></li>
-										<li><a href="products.html">Basketball</a></li>
-										<li><a href="products.html">Gym & training</a></li>
-									</ul>	
-								</div>
-								<div class="col1 me-one">
-									<h4>Thương hiệu</h4>
-									<ul>
-										<li><a href="products.html">Nike</a></li>
-										<li><a href="products.html">Adidas</a></li>
-										<li><a href="products.html">Converse</a></li>
-										<li><a href="products.html">Vans</a></li>
-									</ul>	
+										<li><a href="products.php?maL=LS">Life style</a></li>
+										<li><a href="products.php?maL=SP">Sport</a></li>
+										<li><a href="products.php?maL=SD">Sandals</a></li>
 								</div>
 							</div>
 						</div>

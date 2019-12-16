@@ -10,14 +10,14 @@ function postIndex($index, $value="")
 }
 $sm = postIndex("submit");
 $id = $_GET['id'];
-print_r($_FILES);
+//print_r($_FILES);
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Lab6_1</title>
+<title>add</title>
 <style>
 fieldset{width:50%; margin:100px auto;}
 .info{width:600px; color:#006; background:#6FC; margin:0 auto}
@@ -52,9 +52,11 @@ if ($filehinh !='')
 {
 	$namehinh=$_FILES['file']['name'];
 	?>
+
     <div class="info">
+    <a href="add.php">Tiếp tục</a><br>
    	Hình vừa chọn cho sản phẩm là:<br>
-			<img src="../images/<?php echo $name ; ?>" width=400 >
+			<img src="../images/<?php echo $name ; ?>" width=200 >
     </div>
     <?php
 

@@ -10,6 +10,9 @@ function getIndex($index, $value="")
 				if (!isset($_GET[$index]))	return $value;
 				return trim($_GET[$index]);
 			}
+	$xemL=getIndex("maL");
+	echo $xemL;
+	$xemTH=getIndex("maTH");
 	$numb=6;
 	$page=getIndex("page");
 ?>
@@ -80,76 +83,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!--top-header-->
 	<!--bottom-header-->
-	<div class="header-bottom">
+<div class="header-bottom">
 		<div class="container">
 			<div class="top-nav">
-				<ul class="memenu skyblue"><li class="active"><a href="index.html">Home</a></li>
-					<li class="grid"><a href="#">Nam</a>
+				<ul class="memenu skyblue"><li class="active"><a href="index.php">Home</a></li>
+					<li class="grid"><a href="products.php">Thương Hiệu</a>
 						<div class="mepanel">
 							<div class="row">
 								<div class="col1 me-one">
-									<h4>Danh mục</h4>
-									<ul>
-										<li><a href="products.html">Sale</a></li>
-										<li><a href="products.html">Sản phẩm mới</a></li>
-										<li><a href="products.html">Sản phẩm HOT</a></li>
-										<li><a href="products.html">Nam</a></li>
-										<li><a href="products.html">Nữ</a></li>
-										<li><a href="products.html">Về H&K</a></li>
-									</ul>
-								</div>
-								<div class="col1 me-one">
-									<h4>Sản phẩm</h4>
-									<ul>
-										<li><a href="products.html">Life style</a></li>
-										<li><a href="products.html">Running</a></li>
-										<li><a href="products.html">Basketball</a></li>
-										<li><a href="products.html">Gym & training</a></li>
-									</ul>	
-								</div>
-								<div class="col1 me-one">
 									<h4>Thương hiệu</h4>
 									<ul>
-										<li><a href="products.html">Nike</a></li>
-										<li><a href="products.html">Adidas</a></li>
-										<li><a href="products.html">Converse</a></li>
-										<li><a href="products.html">Vans</a></li>
+										<li><a href="products.php?maTH=NB">New Balance</a></li>
+										<li><a href="products.php?maTH=FL">Fila</a></li>
+										<li><a href="products.php?maTH=CV">Converse</a></li>
+										<li><a href="products.php?maTH=VS">Vans</a></li>
 									</ul>	
 								</div>
 							</div>
 						</div>
 					</li>
-					<li class="grid"><a href="#">Nữ</a>
+					<li class="grid"><a href="products.php">Sản phẩm</a>
 						<div class="mepanel">
 							<div class="row">
-								<div class="col1 me-one">
-									<h4>Danh mục</h4>
-									<ul>
-										<li><a href="products.html">Sale</a></li>
-										<li><a href="products.html">Sản phẩm mới</a></li>
-										<li><a href="products.html">Sản phẩm HOT</a></li>
-										<li><a href="products.html">Nam</a></li>
-										<li><a href="products.html">Nữ</a></li>
-										<li><a href="products.html">Về H&K</a></li>
-									</ul>
-								</div>
-								<div class="col1 me-one">
+								<div class="col1 me-one" >
 									<h4>Sản phẩm</h4>
 									<ul>
-										<li><a href="products.html">Life style</a></li>
-										<li><a href="products.html">Running</a></li>
-										<li><a href="products.html">Basketball</a></li>
-										<li><a href="products.html">Gym & training</a></li>
-									</ul>	
-								</div>
-								<div class="col1 me-one">
-									<h4>Thương hiệu</h4>
-									<ul>
-										<li><a href="products.html">Nike</a></li>
-										<li><a href="products.html">Adidas</a></li>
-										<li><a href="products.html">Converse</a></li>
-										<li><a href="products.html">Vans</a></li>
-									</ul>	
+										<li><a href="products.php?maL=LS">Life style</a></li>
+										<li><a href="products.php?maL=SP">Sport</a></li>
+										<li><a href="products.php?maL=SD">Sandals</a></li>
 								</div>
 							</div>
 						</div>
@@ -195,14 +156,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			$n = $data2->rowCount();
 			if($page=="")
 			{
-				$data = $obj->query("select * from giay ");
+				if($xemTH!="")
+					$data = $obj->query("select * from giay where ID_NhaSanXuat= '$xemTH' ");
+				else if($xemL!="")
+					$data = $obj->query("select * from giay where Ma_Loai = '$xemL' ");
+				else
+					$data = $obj->query("select * from giay ");
 			}else {
 				$page-=1;
 				$limit= ($page*$numb);
-			$data = $obj->query("select * from giay LIMIT $limit,$numb");
+				if($xemTH!="")
+					$data = $obj->query("select * from giay where ID_NhaSanXuat= '$xemTH' LIMIT $limit,$numb ");
+				else if($xemL!="")
+					$data = $obj->query("select * from giay where Ma_Loai = '$xemL' LIMIT $limit,$numb ");
+				else
+					$data = $obj->query("select * from giay LIMIT $limit,$numb");
 		}
-		$giay = $data ->fetchAll();	 
- 		?>
+		$giay = $data ->fetchAll();	
+		?>
 	<div class="product">
 		<div class="container">
 			<div class="product-main">
@@ -249,14 +220,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<?php }
 					?>
 					<div class="b-btn"  > 
-						<?php $pa=$page+2;
+						<?php 	$pa=$page+2;
+								$infopage ="sss";
+						if($xemTH!="")
+							$infopage = "maTH=".$xemTH;
+						else if($xemL!="")
+							$infopage = "maL=".$xemL;
 						if($page>=1&&$page!=""){ 
+
+						
 						?>
-								<a href="products.php?page=<?php echo $page ?>"><</a>
+								<a href="products.php?page=<?php echo $page; ?>&<?php echo "$infopage"; ?>"><</a>
 							<?php }?>
-								<a href="products.php?page=1">1</a>
-								<a href="products.php?page=2">2</a>
-								<a href="products.php?page=<?php echo $pa ?>">></a>
+								<a href="products.php?page=1&<?php echo "$infopage" ?>">1</a>
+								<a href="products.php?page=2&<?php echo "$infopage" ?>">2</a>
+								<a href="products.php?page=3&<?php echo "$infopage" ?>">3</a>
+								<a href="products.php?page=<?php echo $pa; ?>&<?php echo "$infopage" ?>">></a>
 							</div>
 							
 				<div class="clearfix"> </div>

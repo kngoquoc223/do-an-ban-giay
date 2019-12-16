@@ -6,6 +6,8 @@
 			$nhasanxuat = $data ->fetchAll();	
 			$data2 = $obj->query("select * from loai");
 			$loai = $data2 ->fetchAll();
+			$checkdt = $obj->query("select * from giay");	
+			$kiemtra = $checkdt ->fetchAll();
 
 			function getIndex($index, $value="")
 			{
@@ -24,7 +26,7 @@
 			$check='';
 			if($hot!=0)
 				$check="checked";
-			print_r($_GET);
+//			print_r($_GET);
 ?>
 <!DOCTYPE html>
 <html >
@@ -35,6 +37,7 @@
 fieldset{width:50%; margin:100px auto;}
 .info{width:600px; color:#006; background:#6FC; margin:0 auto}
 </style>
+ <a href="../index.php">Trở về</a><br>
 </head>
 
 <body>
@@ -46,8 +49,12 @@ if ($sm !="")
 	$err ="";
 	if (strlen($ten_sp)<2 ) 		$err .="Tên sản phẩm phải có ít nhất 2 kí tự<br>";
 	if (is_numeric($gia)==FALSE) 		$err .="Giá phải là số. <br>";
-	if(strlen($ma_sp)<1) 			$err .="Mã sản phẩm không được để trống.<br>";
+	if(strlen($ma_sp)<1&&strlen($ma_sp)>=15) 			$err .="Mã sản phẩm không hợp lệ.<br>";
 	if(is_numeric($soluong)==FALSE) 	$err .="Số lượng không hợp lệ.<br>";
+	foreach ($kiemtra as $k => $v) {
+		if($ma_sp==$v['Ma_Giay'])
+			$err .="Mã sản phẩm bị trùng!!!!!<br>";
+	}
 	
 	?>
     <div class="info" >
@@ -123,7 +130,7 @@ if ($sm !="")
 		$gia		= (float)$gia;
 		$soluong	= (int)$soluong;
 		$sql= "INSERT INTO giay(Ma_Giay, Ten_Giay, Gia, img, ID_NhaSanXuat, Ma_Loai, Ton_kho, Hot) VALUES ('$ma_sp', '$ten_sp', $gia,'' ,'$nsx' ,'$loaisp' ,$soluong, $hot)";
-        echo "$ten_sp $ma_sp $gia $soluong $nsx $loaisp $hot ";
+        //echo "$ten_sp $ma_sp $gia $soluong $nsx $loaisp $hot ";
 
 		$obj->query($sql);
 
