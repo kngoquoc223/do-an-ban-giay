@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2019 at 03:06 PM
+-- Generation Time: Dec 16, 2019 at 02:45 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -19,20 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `bangiay`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `admin`
---
-
-CREATE TABLE `admin` (
-  `username` varchar(30) NOT NULL,
-  `password` varchar(32) DEFAULT NULL,
-  `name` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `email` varchar(60) DEFAULT NULL,
-  `phone` varchar(12) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -60,9 +46,15 @@ INSERT INTO `giay` (`Ma_Giay`, `Ten_Giay`, `Gia`, `img`, `ID_NhaSanXuat`, `Ma_Lo
 ('CV_02', 'Converse Star Metalic Hightop', 1900000, 'Converse Star Metalic Hightop.jpg', 'CV', 'LS', 2, 0),
 ('CV_03', 'Converse Hightop skull', 2850000, 'Converse Hightop skull.jpg', 'CV', 'LS', 4, 1),
 ('FL_01', 'Fila Disruptor', 1900000, 'Fila Disruptor.jpg', 'FL', 'LS', 5, 0),
+('FL_02', 'Fila OAKMONT TR', 600000, 'Fila OAKMONT TR.jpg', 'FL', 'LS', 10, 0),
+('FL_03', 'FILA REY Rracer Sandal', 500000, 'da67b713c6b02056bd39993879ab3a20.jpg', 'FL', 'SD', 20, 1),
+('FL_04', 'FILA Distruptor Sandal', 799000, '9fd7b75728dbee9e8f7a2fbac026126b.jpg', 'FL', 'SD', 16, 0),
 ('NB_01', 'Newbalance 530', 2200000, 'Newbalance 530.jpg', 'NB', 'SP', 8, 0),
 ('NB_02', 'Newbalance Freshfoam', 990000, 'Newbalance Freshfoam.jpg', 'NB', 'SP', 12, 1),
-('V_01', 'Vans Old Skool Red', 800000, 'Vans Old Skool.jpg', 'VS', 'SP', 10, 1);
+('NB_03', 'New Balance TEAM AWAY GREY', 2190000, '9e9cfa56dc7a4bdf8e5b76cf893daaf8.jpg', 'NB', 'SP', 6, 1),
+('VS_01', 'Vans Old Skool Red', 800000, 'Vans Old Skool.jpg', 'VS', 'SP', 10, 1),
+('VS_02', 'Sneaker Unisex Sk8 Hi Vans', 2160000, 'ss.jpg', 'VS', 'LS', 32, 1),
+('VS_03', 'Vans Slip On', 2699000, 'Vans Slip On.jpg', 'VS', 'LS', 4, 0);
 
 -- --------------------------------------------------------
 
@@ -81,31 +73,8 @@ CREATE TABLE `loai` (
 
 INSERT INTO `loai` (`Ma_Loai`, `Ten_Loai`) VALUES
 ('LS', 'Lifestyle'),
+('SD', 'Sandals'),
 ('SP', 'Sport');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `news`
---
-
-CREATE TABLE `news` (
-  `id` int(11) NOT NULL,
-  `title` varchar(200) CHARACTER SET utf8 NOT NULL COMMENT 'tiêu đề',
-  `img` varchar(50) DEFAULT NULL COMMENT 'path file hình',
-  `short_content` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT 'Nội dung ngắn',
-  `content` text CHARACTER SET utf8 NOT NULL COMMENT 'Nội dung',
-  `hot` int(1) NOT NULL DEFAULT '0' COMMENT 'tin hot=1, thường: != 1'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `news`
---
-
-INSERT INTO `news` (`id`, `title`, `img`, `short_content`, `content`, `hot`) VALUES
-(1, 'qqq', 'q', 'q', 'q', 0),
-(2, 'ww', 'w', 'w', 'w', 1),
-(3, 'ee', 'e', 'e', 'e', 1);
 
 -- --------------------------------------------------------
 
@@ -186,12 +155,6 @@ INSERT INTO `thanhvien` (`email`, `password`, `name`, `address`, `phone`) VALUES
 --
 
 --
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`username`);
-
---
 -- Indexes for table `giay`
 --
 ALTER TABLE `giay`
@@ -204,12 +167,6 @@ ALTER TABLE `giay`
 --
 ALTER TABLE `loai`
   ADD PRIMARY KEY (`Ma_Loai`);
-
---
--- Indexes for table `news`
---
-ALTER TABLE `news`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `nsx`
@@ -237,15 +194,6 @@ ALTER TABLE `order_detail`
 ALTER TABLE `thanhvien`
   ADD PRIMARY KEY (`email`);
 
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `news`
---
-ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --
