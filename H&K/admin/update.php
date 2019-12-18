@@ -1,6 +1,5 @@
 <?php
-$obj = new PDO("mysql:host=localhost;dbname=bangiay","root","");
-$obj ->query("set names 'utf8'");
+include "../config.php";
 			$ten_sp 	= isset($_POST['ten_sp'])?$_POST['ten_sp']:'';
 			$ma_sp		= isset($_GET['m'])?$_GET['m']:'';
 			$gia		= isset($_POST['gia'])?$_POST['gia']:'';

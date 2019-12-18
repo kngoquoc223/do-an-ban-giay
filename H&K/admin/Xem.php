@@ -1,6 +1,5 @@
 <?php
-			$obj = new PDO("mysql:host=localhost;dbname=bangiay","root","");
-			$obj ->query("set names 'utf8'");
+			include "../config.php";
 			$data = $obj->query("select * from giay");	
 			$giay = $data ->fetchAll();	 
 			$n = $data->rowCount();

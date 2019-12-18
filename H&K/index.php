@@ -4,7 +4,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-
+<?php include "./config.php"; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -105,6 +105,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</div>
 					</li>
+					<li class="active"><a href="products.php?HOT=1">Hot</a></li>
 					<li class="grid"><a href="#">VỀ H&K</a>
 						<div class="mepanel">
 							<div class="row">
@@ -169,8 +170,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!--End-slider-script-->
 	<!--start-banner-bottom--> 
 	<?php
-			$obj = new PDO("mysql:host=localhost;dbname=bangiay","root","");
-			$obj ->query("set names 'utf8'");
 			$data = $obj->query("select * from giay");
 			$datahot = $obj->query("select * from giay where Hot = 1 ");
 			$DatHot = $datahot ->fetchAll();	
@@ -254,23 +253,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="abt-shoe-main">
 				<div class="col-md-4 abt-shoe-left">
 					<div class="abt-one">
-						<a href="single.html"><img src="images/abt-1.jpg" alt="" /></a>
-						<h4><a href="single.html">Cras dolor ligula</a></h4>
-						<p>Phasellus auctor vulputate egestas. Nulla facilisi. Cras dolor ligula, pharetra vitae efficitur ac, tempus vitae nisl. Aliquam erat volutpat. </p>
+						<a href="products.php"><img src="images/abt-1.jpg" alt="" /></a>
+						<h4><a href="products.php">Đa dạng sản phẩm</a></h4>
+						<p>Website sẽ luôn có những mẫu giày mới, khó tìm, hot nhất hiện nay với đủ loại mẫu mã, thương hiệu cho người dùng lựa chọn. </p>
 					</div>
 				</div>
 				<div class="col-md-4 abt-shoe-left">
 					<div class="abt-one">
-						<a href="single.html"><img src="images/abt-2.jpg" alt="" /></a>
-						<h4><a href="single.html">Cras dolor ligula</a></h4>
-						<p>Phasellus auctor vulputate egestas. Nulla facilisi. Cras dolor ligula, pharetra vitae efficitur ac, tempus vitae nisl. Aliquam erat volutpat. </p>
+						<a href="products.php"><img src="images/abt-2.jpg" alt="" /></a>
+						<h4><a href="products.php">Uy tính, chất lượng</a></h4>
+						<p>H&K là hệ thống bán giày lâu năm, uy tính nhất trên thị trường, được thành lập từ tháng 10/2019. Websaite đã bán hơn hàng ngàn sản phẩm các loại và đáp ứng đầy đủ nhu cầu của người tiêu dùng. </p>
 					</div>
 				</div>
 				<div class="col-md-4 abt-shoe-left">
 					<div class="abt-one">
-						<a href="single.html"><img src="images/abt-3.jpg" alt="" /></a>
-						<h4><a href="single.html">Cras dolor ligula</a></h4>
-						<p>Phasellus auctor vulputate egestas. Nulla facilisi. Cras dolor ligula, pharetra vitae efficitur ac, tempus vitae nisl. Aliquam erat volutpat. </p>
+						<a href="products.php"><img src="images/abt-3.jpg" alt="" /></a>
+						<h4><a href="products.php">Luôn xem khách hàng là thượng đế</a></h4>
+						<p>.Chúng tôi có đội ngũ nhân viên sẵn sàn hỗ trợ khách hàng 24/7, luôn lắng nghe phẩn hỏi của khách hàng, đăng chất lượng làm mục tiêu phát triễn của công ty. Sự hài lòng của khách hàng là động lực để website phát triễn. </p>
 					</div>
 				</div>
 				<div class="clearfix"> </div>
@@ -326,7 +325,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="footer-text">
 		<div class="container">
 			<div class="footer-main">
-				<p class="footer-class">© 2015 Free Style All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+				<p class="footer-class">© Design by Team <a href="http://w3layouts.com/" target="_blank"> HUY & KHÁNH</a> </p>
 			</div>
 		</div>
 		<script type="text/javascript">

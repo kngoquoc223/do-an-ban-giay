@@ -1,7 +1,5 @@
 <?php
 include "../config.php";
-$obj = new PDO("mysql:host=localhost;dbname=bangiay","root","");
-			$obj ->query("set names 'utf8'");
 			//echo ROOT; exit;
 function postIndex($index, $value="")
 {

@@ -5,8 +5,7 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <?php
-	$obj = new PDO("mysql:host=localhost;dbname=bangiay","root","");
-	$obj ->query("set names 'utf8'");
+	include "./config.php"; 
   	$id = $_GET['id'];
 	$data = $obj->query("select * from giay where Ma_Giay= '$id' ");
 	$giay = $data ->fetch();	
@@ -110,6 +109,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</div>
 					</li>
+					<li class="active"><a href="products.php?HOT=1">Hot</a></li>
 					<li class="grid"><a href="#">VỀ H&K</a>
 						<div class="mepanel">
 							<div class="row">
@@ -221,8 +221,6 @@ $(window).load(function() {
 		<div class="clearfix"></div>
 	</div>
 	<?php
-			$obj = new PDO("mysql:host=localhost;dbname=bangiay","root","");
-			$obj ->query("set names 'utf8'");
 			$data = $obj->query("select * from giay");
 			$giay = $data ->fetchAll();	
  		?>

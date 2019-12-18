@@ -5,11 +5,13 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <?php
+ include "./config.php"; 
 function getIndex($index, $value="")
 			{
 				if (!isset($_GET[$index]))	return $value;
 				return trim($_GET[$index]);
 			}
+	$hot=getIndex("HOT",0);
 	$xemL=getIndex("maL");
 	$xemTH=getIndex("maTH");
 	$numb=6;
@@ -114,6 +116,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</div>
 					</li>
+					<li class="active"><a href="products.php?HOT=1">Hot</a></li>
 					<li class="grid"><a href="#">VỀ H&K</a>
 						<div class="mepanel">
 							<div class="row">
@@ -149,9 +152,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--end-breadcrumbs-->
 	<!--start-product--> 
 	<?php
-			$obj = new PDO("mysql:host=localhost;dbname=bangiay","root","");
 			$data2 = $obj->query("select * from giay ");
-			$obj ->query("set names 'utf8'");
 			$n = $data2->rowCount();
 			if($page=="")
 			{
@@ -159,6 +160,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					$data = $obj->query("select * from giay where ID_NhaSanXuat= '$xemTH' ");
 				else if($xemL!="")
 					$data = $obj->query("select * from giay where Ma_Loai = '$xemL' ");
+				else if($hot==1)
+					$data = $obj->query("select * from giay where Hot = 1 ");
 				else
 					$data = $obj->query("select * from giay ");
 			}else {
@@ -168,6 +171,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					$data = $obj->query("select * from giay where ID_NhaSanXuat= '$xemTH' LIMIT $limit,$numb ");
 				else if($xemL!="")
 					$data = $obj->query("select * from giay where Ma_Loai = '$xemL' LIMIT $limit,$numb ");
+				else if($hot==1)
+					$data = $obj->query("select * from giay where Hot = 1  LIMIT $limit,$numb ");
 				else
 					$data = $obj->query("select * from giay LIMIT $limit,$numb");
 		}
@@ -225,6 +230,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							$infopage = "maTH=".$xemTH;
 						else if($xemL!="")
 							$infopage = "maL=".$xemL;
+						else if($hot==1)
+							$infopage = "HOT=1";
 						if($page>=1&&$page!=""){ 
 
 						

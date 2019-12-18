@@ -1,7 +1,6 @@
 <?php
 
-			$obj = new PDO("mysql:host=localhost;dbname=bangiay","root","");
-			$obj ->query("set names 'utf8'");
+			 include "../config.php";
 			$data = $obj->query("select * from nsx");
 			$nhasanxuat = $data ->fetchAll();	
 			$data2 = $obj->query("select * from loai");
@@ -47,6 +46,7 @@ fieldset{width:50%; margin:100px auto;}
 if ($sm !="")
 {	
 	$err ="";
+	if($gia <=0 ||$soluong <=0)			$err .="Không được nhập số âm!!<br>";
 	if (strlen($ten_sp)<2 ) 		$err .="Tên sản phẩm phải có ít nhất 2 kí tự<br>";
 	if (is_numeric($gia)==FALSE) 		$err .="Giá phải là số. <br>";
 	if(strlen($ma_sp)<1&&strlen($ma_sp)>=15) 			$err .="Mã sản phẩm không hợp lệ.<br>";
