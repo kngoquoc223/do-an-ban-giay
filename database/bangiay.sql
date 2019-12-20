@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2019 at 02:45 PM
+-- Generation Time: Dec 20, 2019 at 12:58 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -49,7 +49,7 @@ INSERT INTO `giay` (`Ma_Giay`, `Ten_Giay`, `Gia`, `img`, `ID_NhaSanXuat`, `Ma_Lo
 ('FL_02', 'Fila OAKMONT TR', 600000, 'Fila OAKMONT TR.jpg', 'FL', 'LS', 10, 0),
 ('FL_03', 'FILA REY Rracer Sandal', 500000, 'da67b713c6b02056bd39993879ab3a20.jpg', 'FL', 'SD', 20, 1),
 ('FL_04', 'FILA Distruptor Sandal', 799000, '9fd7b75728dbee9e8f7a2fbac026126b.jpg', 'FL', 'SD', 16, 0),
-('NB_01', 'Newbalance 530', 2200000, 'Newbalance 530.jpg', 'NB', 'SP', 8, 0),
+('NB_01', 'New Balance N-BACK', 2650000, 'Newbalance 530.jpg', 'NB', 'LS', 15, 1),
 ('NB_02', 'Newbalance Freshfoam', 990000, 'Newbalance Freshfoam.jpg', 'NB', 'SP', 12, 1),
 ('NB_03', 'New Balance TEAM AWAY GREY', 2190000, '9e9cfa56dc7a4bdf8e5b76cf893daaf8.jpg', 'NB', 'SP', 6, 1),
 ('VS_01', 'Vans Old Skool Red', 800000, 'Vans Old Skool.jpg', 'VS', 'SP', 10, 1),
@@ -135,20 +135,18 @@ CREATE TABLE `order_detail` (
 --
 
 CREATE TABLE `thanhvien` (
-  `email` varchar(50) NOT NULL DEFAULT '',
-  `password` varchar(32) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `address` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `phone` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
+  `id_tv` varchar(50) NOT NULL,
+  `password` varchar(32) NOT NULL,
+  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `thanhvien`
 --
 
-INSERT INTO `thanhvien` (`email`, `password`, `name`, `address`, `phone`) VALUES
-('abcd@yahoo.com', 'e10adc3949ba59abbe56e057f20f883e', 'Nguyễn Minh Triết', 'Q1', '99999999'),
-('hung.stu@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Đại Ca - Trần văn Hùng', 'Quận 3', '090090999');
+INSERT INTO `thanhvien` (`id_tv`, `password`, `name`) VALUES
+('huy', '202cb962ac59075b964b07152d234b70', 'minh huy'),
+('khanh', '202cb962ac59075b964b07152d234b70', 'quoc khanh');
 
 --
 -- Indexes for dumped tables
@@ -192,7 +190,7 @@ ALTER TABLE `order_detail`
 -- Indexes for table `thanhvien`
 --
 ALTER TABLE `thanhvien`
-  ADD PRIMARY KEY (`email`);
+  ADD PRIMARY KEY (`id_tv`);
 
 --
 -- Constraints for dumped tables
@@ -209,7 +207,7 @@ ALTER TABLE `giay`
 -- Constraints for table `order`
 --
 ALTER TABLE `order`
-  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`email`) REFERENCES `thanhvien` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`email`) REFERENCES `thanhvien` (`id_tv`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `order_detail`

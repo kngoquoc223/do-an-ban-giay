@@ -15,7 +15,7 @@ function getIndex($index, $value="")
 	$xemL=getIndex("maL");
 	$xemTH=getIndex("maTH");
 	$numb=6;
-	$page=getIndex("page");
+	$page=getIndex("page",0);
 ?>
 <!DOCTYPE html>
 <html>
@@ -117,21 +117,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 					</li>
 					<li class="active"><a href="products.php?HOT=1">Hot</a></li>
-					<li class="grid"><a href="#">VỀ H&K</a>
-						<div class="mepanel">
-							<div class="row">
-								<div class="col1 me-one">
-									<h4>Câu chuyện</h4>
-								</div>
-								<div class="col1 me-one">
-									<h4>Bước phát triển</h4>
-								</div>
-								<div class="col1 me-one">
-									<h4>Hoạt động</h4>
-								</div>
-							</div>
-						</div>
-					</li>
+					<li class="active"><a href="login.php">admin</a></li>
 				</ul>
 			</div>
 			<div class="clearfix"> </div>
@@ -207,7 +193,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="product-one">
 				<?php if(isset($giay[3])) 
 				for($i=3;$i<=5;$i++) {
-								?>
+				if(isset($giay[$i])){					?>
 				
 				<div class="col-md-4 product-left single-left"> 
 					<div class="p-one simpleCart_shelfItem">
@@ -222,10 +208,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 				<?php }
+			}
 					?>
-					<div class="b-btn"  > 
+							
+				<div class="clearfix"> </div>
+				<div class="b-btn"  > 
 						<?php 	$pa=$page+2;
-								$infopage ="sss";
+								$infopage ="";
 						if($xemTH!="")
 							$infopage = "maTH=".$xemTH;
 						else if($xemL!="")
@@ -243,9 +232,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<a href="products.php?page=3&<?php echo "$infopage" ?>">3</a>
 								<a href="products.php?page=<?php echo $pa; ?>&<?php echo "$infopage" ?>">></a>
 							</div>
-							
-				<div class="clearfix"> </div>
-				
 			</div>
 			</div>
 			<div class="col-md-3 p-right single-right">

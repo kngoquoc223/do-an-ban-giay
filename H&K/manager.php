@@ -1,3 +1,10 @@
+<?php
+if (!isset($_SESSION)) session_start();
+if (!isset($_SESSION['login']))
+{
+	header('location:login.php');
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,6 +72,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <div class="abt-shoe">
 		<div class="container"> 
+			<h4 align="right">Admin: <?php echo  $_SESSION['login']['name'] ?> &emsp;
+	<a href='logout.php'>logout</a></h4>
 			<div class="abt-shoe-main">
 				<div class="col-md-4 abt-shoe-left">
 					<div class="abt-one">

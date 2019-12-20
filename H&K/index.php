@@ -106,21 +106,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 					</li>
 					<li class="active"><a href="products.php?HOT=1">Hot</a></li>
-					<li class="grid"><a href="#">VỀ H&K</a>
-						<div class="mepanel">
-							<div class="row">
-								<div class="col1 me-one">
-									<h4>Câu chuyện</h4>
-								</div>
-								<div class="col1 me-one">
-									<h4>Bước phát triển</h4>
-								</div>
-								<div class="col1 me-one">
-									<h4>Hoạt động</h4>
-								</div>
-							</div>
-						</div>
-					</li>
+					<li class="active"><a href="login.php">admin</a></li>
 				</ul>
 			</div>
 			<div class="clearfix"> </div>
