@@ -36,7 +36,7 @@
 fieldset{width:50%; margin:100px auto;}
 .info{width:600px; color:#006; background:#6FC; margin:0 auto}
 </style>
- <a href="../index.php">Trở về</a><br>
+ <a href="../index.php">Thoát</a><br>
 </head>
 
 <body>
@@ -46,6 +46,12 @@ fieldset{width:50%; margin:100px auto;}
 if ($sm !="")
 {	
 	$err ="";
+	$tim='.';
+	$kq="";
+	$kq=strpos($soluong,$tim);
+	if($kq!="")	$err .="Số lượng phải là số nguyên dương<br>";
+	// if(preg_match($tim,$soluong)) $err .="Số lượng phải là số nguyên dương<br>";
+	//if(!is_int($soluong))	$err .="Số lượng phải là số nguyên dương<br>";
 	if($gia <=0 ||$soluong <=0)			$err .="Không được nhập số âm!!<br>";
 	if (strlen($ten_sp)<2 ) 		$err .="Tên sản phẩm phải có ít nhất 2 kí tự<br>";
 	if (is_numeric($gia)==FALSE) 		$err .="Giá phải là số. <br>";

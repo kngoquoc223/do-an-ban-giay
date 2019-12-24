@@ -4,24 +4,19 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-<?php include "./config.php"; 
-if (!isset($_SESSION)) session_start();
-$gh = isset($_SESSION['gh'])?$_SESSION['gh']:array(); 
-function getIndex($index, $value="")
-			{
-				if (!isset($_GET[$index]))	return $value;
-				return trim($_GET[$index]);
-			}
-	$hot=getIndex("HOT",0);
-	$xemL=getIndex("maL");
-	$xemTH=getIndex("maTH");
-	$numb=6;
-	$page=getIndex("page",0);
-?>
+<?php
+	include "./config.php"; 
+	$data = $obj->query("select * from giay ");
+	$giay = $data ->fetchALL();	
+			if (!isset($_SESSION)) session_start();
+			$gh = isset($_SESSION['gh'])?$_SESSION['gh']:array();
+			//if (Count($gh)==0) echo "Gio hang rong";
+			//var_dump($giay);
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Free Style A Ecommerce Category Flat Bootstarp Resposive Website Template | Products :: w3layouts</title>
+<title>Free Style A Ecommerce Category Flat Bootstarp Resposive Website Template | Single :: w3layouts</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery-1.11.0.min.js"></script>
@@ -54,9 +49,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript" src="js/memenu.js"></script>
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>				
 </head>
-<body> 
-	<!--top-header-->
-	<div class="top-header">
+	<body>
+<div class="top-header">
 	<div class="container">
 		<div class="top-header-main">
 			<div class="col-md-4 top-header-left">
@@ -124,147 +118,64 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"> </div>
 		</div>
 	</div>
-	<!--bottom-header-->
+		<!--bottom-header-->
 	<!--start-breadcrumbs-->
 	<div class="breadcrumbs">
 		<div class="container">
 			<div class="breadcrumbs-main">
 				<ol class="breadcrumb">
-					<li><a href="index.html">Home</a></li>
-					<li class="active">Sản phẩm</li>
+					<li><a href="index.php">Home</a></li>
+					<li class="active">Giỏ Hàng</li>
 				</ol>
 			</div>
 		</div>
 	</div>
 	<!--end-breadcrumbs-->
-	<!--start-product--> 
-	<?php
-			$data2 = $obj->query("select * from giay ");
-			$n = $data2->rowCount();
-			if($page=="")
-			{
-				if($xemTH!="")
-					$data = $obj->query("select * from giay where ID_NhaSanXuat= '$xemTH' ");
-				else if($xemL!="")
-					$data = $obj->query("select * from giay where Ma_Loai = '$xemL' ");
-				else if($hot==1)
-					$data = $obj->query("select * from giay where Hot = 1 ");
-				else
-					$data = $obj->query("select * from giay ");
-			}else {
-				$page-=1;
-				$limit= ($page*$numb);
-				if($xemTH!="")
-					$data = $obj->query("select * from giay where ID_NhaSanXuat= '$xemTH' LIMIT $limit,$numb ");
-				else if($xemL!="")
-					$data = $obj->query("select * from giay where Ma_Loai = '$xemL' LIMIT $limit,$numb ");
-				else if($hot==1)
-					$data = $obj->query("select * from giay where Hot = 1  LIMIT $limit,$numb ");
-				else
-					$data = $obj->query("select * from giay LIMIT $limit,$numb");
-		}
-		$giay = $data ->fetchAll();	
-		?>
-	<div class="product">
+	<!--start-single-->
+	<div class="ckeckout">
 		<div class="container">
-			<div class="product-main">
-				<div class="col-md-9 p-left">
-				<div class="product-one">
-				<?php 
-				for($i=0;$i<=2;$i++) {
-				if(isset($giay[$i])){				?>
+			<div class="ckeckout-top">
+			<div class=" cart-items heading">
+			 <h3>Giỏ hàng</h3>
 				
-				<div class="col-md-4 product-left single-left"> 
-					<div class="p-one simpleCart_shelfItem">
-						<a href="single.php?id=<?php echo $giay[$i]['Ma_Giay']; ?>">
-								<img src="images/<?php echo $giay[$i]["img"]; ?>" alt="" />
-								<div class="mask mask1">
-									<span>Quick View</span>
-								</div>
-							</a>
-						<h4><?php echo $giay[$i]['Ten_Giay'] ?></h4>
-						<p><a class="item_add" href="#"><i></i> <span class=" item_price"><?php echo $giay[$i]['Gia'] ?>₫</span></a></p>
-					</div>
-				</div>
-				<?php }
-			}
-					?>
-				<div class="clearfix"> </div>
-			</div>
-			<div class="product-one">
-				<?php if(isset($giay[3])) 
-				for($i=3;$i<=5;$i++) {
-				if(isset($giay[$i])){					?>
-				
-				<div class="col-md-4 product-left single-left"> 
-					<div class="p-one simpleCart_shelfItem">
-						<a href="single.php?id=<?php echo $giay[$i]['Ma_Giay']; ?>">
-								<img src="images/<?php echo $giay[$i]["img"]; ?>" alt="" />
-								<div class="mask mask1">
-									<span>Quick View</span>
-								</div>
-							</a>
-						<h4><?php echo $giay[$i]['Ten_Giay'] ?></h4>
-						<p><a class="item_add" href="#"><i></i> <span class=" item_price"><?php echo $giay[$i]['Gia'] ?>₫</span></a></p>
-					</div>
-				</div>
-				<?php }
-			}
-					?>
+			<div class="in-check" >
+				<ul class="unit">
+					<li><span>&nbsp;&nbsp;&nbsp;&nbsp;Item</span></li>
+					<li><span>Tên Giày</span></li>		
+					<li><span>Giá</span></li>
+					<li><span>Size</span></li>
+					<li><span>Số lượng</span></li>
+					<li> </li>
+					<div class="clearfix"> </div>
+				</ul>
+				<?php foreach ($gh as $key => $value)
+				 { 
+						foreach ($giay as $k2 => $v2) {
+						if($value['ma']==$v2['Ma_Giay']){?>
+							<ul class="cart-header">
+							<li class="ring-in"><a href="single.php?id=<?php echo $v2['Ma_Giay']; ?>" ><img src="./images/<?php echo $v2['img'] ; ?>" width=100 class="img-responsive" alt=""></a>
+							</li>
+							<li><?php echo $v2['Ten_Giay']?></li>
+							<li><?php echo $v2['Gia']?></li>
+							<li><?php echo $value['size'] ?></li>
+							<li><?php echo $value['soluong']?></li>
 							
-				<div class="clearfix"> </div>
-				<div class="b-btn"  > 
-						<?php 	$pa=$page+2;
-								$infopage ="";
-						if($xemTH!="")
-							$infopage = "maTH=".$xemTH;
-						else if($xemL!="")
-							$infopage = "maL=".$xemL;
-						else if($hot==1)
-							$infopage = "HOT=1";
-						if($page>=1&&$page!=""){ 
-
-						
-						?>
-								<a href="products.php?page=<?php echo $page; ?>&<?php echo "$infopage"; ?>"><</a>
-							<?php }?>
-								<a href="products.php?page=1&<?php echo "$infopage" ?>">1</a>
-								<a href="products.php?page=2&<?php echo "$infopage" ?>">2</a>
-								<a href="products.php?page=3&<?php echo "$infopage" ?>">3</a>
-								<a href="products.php?page=<?php echo $pa; ?>&<?php echo "$infopage" ?>">></a>
-							</div>
-			</div>
-			</div>
-			<div class="col-md-3 p-right single-right">
-				<h3>Danh mục</h3>
-					<ul class="product-categories">
-						<li><a href="#">Sản phẩm</a> <span class="count">(3)</span></li>
-						<li><a href="#">Sản phẩm mới</a> <span class="count">(14)</span></li>
-						<li><a href="#">Sản phẩm HOT</a> <span class="count">(2)</span></li>
-						<li><a href="#">NAM</a> <span class="count">(2)</span></li>
-						<li><a href="#">NỮ</a> <span class="count">(11)</span></li>
-						<li><a href="#">SALE</a> <span class="count">(3)</span></li>
+							<li> <a href="Giohang.php?ac=delete&key=<?php echo $key;?>" class="add-cart cart-check">XÓA</a></li>
+						<div class="clearfix"> </div>
 					</ul>
-					<h3>Sizes</h3>
-					<ul class="product-categories">
-						<li><a href="#">5.5</a> <span class="count">(14)</span></li>
-						<li><a href="#">6</a> <span class="count">(2)</span></li>
-						<li><a href="#">6.5</a> <span class="count">(2)</span></li>
-						<li><a href="#">7</a> <span class="count">(8)</span></li>
-						<li><a href="#">7.5</a> <span class="count">(11)</span></li>
-					</ul>
-					<h3>GIÁ</h3>
-					<ul class="product-categories p1">
-						<li><a href="#">800.000VND - 1.000.000VND</a> <span class="count">(14)</span></li>
-					</ul>
+				<?php
+			}
+		}
+		}?>
+				
 			</div>
-			<div class="clearfix"> </div>
+			</div>  
+		 </div>
 		</div>
 	</div>
-	</div>
-	<!--end-product-->
+	<!--end-single-->
 	<!--start-footer-->
-	<div class="footer">
+		<div class="footer">
 		<div class="container">
 			<div class="footer-top">
 				<div class="col-md-3 footer-left">

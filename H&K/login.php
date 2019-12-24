@@ -10,7 +10,7 @@ if (!isset($_SESSION)) session_start();
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Đăng nhập</title>
 	<style>
 fieldset{width:20%; margin:100px auto;}
 .info{width:600px; color:#006; background:#6FC; margin:0 auto}

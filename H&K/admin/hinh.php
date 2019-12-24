@@ -8,14 +8,14 @@ function postIndex($index, $value="")
 }
 $sm = postIndex("submit");
 $id = $_GET['id'];
-//print_r($_FILES);
+print_r($_FILES);
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>add</title>
+<title>add - hinh</title>
 <style>
 fieldset{width:50%; margin:100px auto;}
 .info{width:600px; color:#006; background:#6FC; margin:0 auto}
@@ -27,12 +27,18 @@ fieldset{width:50%; margin:100px auto;}
 	$filehinh='';
 	if(isset($_FILES['file']))
 	{
-		if($_FILES['file']['error']==0)
+		$error="";
+		$tim="/jpg/";
+		if(preg_match($tim,$_FILES['file']['name']))
 		{
-			$name = $_FILES['file']['name'];
-			$filehinh =IMG . $_FILES['file']['name'];
-			move_uploaded_file($_FILES['file']['tmp_name'],$filehinh);
-		}
+			if($_FILES['file']['error']==0)
+			{
+				$name = $_FILES['file']['name'];
+				$filehinh =IMG . $_FILES['file']['name'];
+				move_uploaded_file($_FILES['file']['tmp_name'],$filehinh);
+			}
+		}else
+		$error="hình không hợp lệ!";
 	}
 	?>
 <fieldset>
@@ -45,9 +51,8 @@ fieldset{width:50%; margin:100px auto;}
 </form>
 </fieldset>
 <?php
-
 if ($filehinh !='')
-{
+{	
 	$namehinh=$_FILES['file']['name'];
 	?>
 
@@ -60,8 +65,13 @@ if ($filehinh !='')
 
 $sql= "UPDATE giay SET img = '$namehinh' WHERE giay.Ma_Giay = '$id'";
 		$obj->query($sql);
-}
-
+}if($error!="")
+{
 ?>
+ <div class="info">
+   <?php echo $error ?><br>
+    </div>
+    <?php
+}?>
 </body>
 </html>

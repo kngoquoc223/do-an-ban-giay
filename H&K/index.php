@@ -4,7 +4,9 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-<?php include "./config.php"; ?>
+<?php include "./config.php"; 
+if (!isset($_SESSION)) session_start();
+$gh = isset($_SESSION['gh'])?$_SESSION['gh']:array();?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,16 +56,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 			<div class="col-md-4 top-header-middle">
-				<h1><a href="index.html">H&K</a></h1>	
+				<h1><a href="index.php">H&K</a></h1>	
 			</div>
 			<div class="col-md-4 top-header-right">
 				<div class="cart box_1">
-						<a href="checkout.html">
+						<a href="checkout.php">
 						<h3> <div class="total">
-							<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
+							 (<span id="simpleCart_quantity" ><?php echo count($gh);?></span> items)</div>
 							<img src="images/cart-1.png" alt="" />
 						</a>
-						<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+						
 						<div class="clearfix"> </div>
 					</div>
 			</div>

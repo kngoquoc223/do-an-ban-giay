@@ -741,7 +741,7 @@ ul.cart-header li span,ul.cart-header1 li span,ul.cart-header2 li span{
 	display: block;
 	color:#000;
 	font-size:1.2em;
-	text-align:center;
+	text-align:left;
 }
 li.ring-in img{
 	margin: 0 auto;

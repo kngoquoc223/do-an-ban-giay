@@ -76,7 +76,7 @@ fieldset{width:50%; margin:100px auto;}
 							 <tr><td>Sản phẩm đang HOT?:</td><td><input type="checkbox" name="hot"  value="1" <?php echo $check;?>
     					></td></tr>
 							
-    						 <tr><td colspan="2" align="center"><input type="submit" value="Sửas" name="submit"></td></tr> 
+    						 <tr><td colspan="2" align="center"><input type="submit" value="Sửa" name="submit"></td></tr> 
     					
      
 </table>

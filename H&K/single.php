@@ -6,6 +6,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <?php
 	include "./config.php"; 
+if (!isset($_SESSION)) session_start();
+$gh = isset($_SESSION['gh'])?$_SESSION['gh']:array();
   	$id = $_GET['id'];
 	$data = $obj->query("select * from giay where Ma_Giay= '$id' ");
 	$giay = $data ->fetch();	
@@ -62,12 +64,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="col-md-4 top-header-right">
 				<div class="cart box_1">
-						<a href="checkout.html">
+						<a href="checkout.php">
 						<h3> <div class="total">
-							<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
+							 (<span id="simpleCart_quantity" ><?php echo count($gh);?></span> items)</div>
 							<img src="images/cart-1.png" alt="" />
 						</a>
-						<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+						
 						<div class="clearfix"> </div>
 					</div>
 			</div>
@@ -176,58 +178,50 @@ $(window).load(function() {
 						</div>
 						<h2 class="quick">Thông tin chi tiết:</h2>
 						<p class="quick_desc"> Đang cập nhật</p>
-						<ul class="size">
-							<h3>SIZE:</h3>
-							<li><a href="#">37</a></li>
-							<li><a href="#">38</a></li>
-							<li><a href="#">39</a></li>
-							<li><a href="#">40</a></li>
-							<li><a href="#">42</a></li>
-							<li><a href="#">43</a></li>
-						</ul>
-						<div class="quantity_box">
-							<ul class="product-qty">
-								<span>số lượng</span>
-								<select>
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-									<option>6</option>
-								</select>
-							</ul>
-						</div>
-					<div class="clearfix"> </div>
-				<div class="single-but item_add">
-					<input type="submit" value="add to cart"/>
+						<div class="clearfix"> </div>
+						<form action="Giohang.php" >
+						Số lượng: <input type="number" name="sl" value="1"></br></br>
+						Size: <select name="size" >
+    					<option value="38" >38</option>
+    					<option value="39" >39</option>
+    					<option value="40" >40</option>
+    					<option value="41" >41</option>
+    					<option value="42" >42</option>
+							</select>
+						<input type="hidden" name="ma" value="<?php echo $giay['Ma_Giay'] ?>">
+						<input type="hidden" name="ac" value="add">
+						<div class="single-but item_add">
+					<input type="submit" value="Thêm vào GH" name="submit">
 				</div>
+			</form>
+					<div class="clearfix"> </div>
+				
 			</div>
 		</div>
 		<div class="clearfix"></div>
 	</div>
 	<?php
-			$data = $obj->query("select * from giay");
-			$giay = $data ->fetchAll();	
+			$data2 = $obj->query("select * from giay");
+			$giayran = $data2 ->fetchAll();	
  		?>
 					<div class="latest products">
 						<?php 
-			$rand_key= array_rand($giay,3);
+			$rand_key= array_rand($giayran,3);
 			for($i=0;$i<=2;$i++) {
 								?>
 						<div class="product-one">
 							<div class="col-md-4 product-left single-left"> 
 					<div class="p-one simpleCart_shelfItem">							
-							<a href="single.php?id=<?php echo $giay[$rand_key[$i]]['Ma_Giay']; ?>">
-								<img  src="images/<?php echo $giay[$rand_key[$i]]["img"]; ?>" alt="" />
+							<a href="single.php?id=<?php echo $giayran[$rand_key[$i]]['Ma_Giay']; ?>">
+								<img  src="images/<?php echo $giayran[$rand_key[$i]]["img"]; ?>" alt="" />
 								<div class="mask">
 									<span>XEM NHANH</span>
 								</div>
 							</a>
 						<h4><?php
-								echo $giay[$rand_key[$i]]["Ten_Giay"];
+								echo $giayran[$rand_key[$i]]["Ten_Giay"];
 							?></h4>
-						<p><a class="item_add" href="#"><i></i> <span class=" item_price"><?php echo $giay[$rand_key[$i]]["Gia"]; ?>₫</span></a></p>
+						<p><a class="item_add" href="#"><i></i> <span class=" item_price"><?php echo $giayran[$rand_key[$i]]["Gia"]; ?>₫</span></a></p>
 					
 					</div>
 				</div>
