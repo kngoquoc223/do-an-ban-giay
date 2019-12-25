@@ -167,7 +167,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			}
 		}
 		}?>
-				
+				<a href="Giohang.php?ac=deleteALL" class="add-cart cart-check">Clean</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="products.php" class="add-cart cart-check">Tiếp tục mua hàng</a>
 			</div>
 			</div>  
 		 </div>

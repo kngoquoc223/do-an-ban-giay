@@ -34,7 +34,10 @@ if ($ac=='update')
 {
 	if (isset($gh[$id])) $gh[$id]= $sl;
 }
+if ($ac=='deleteALL')
+{
+	session_destroy();
+}
 $_SESSION['gh']= $gh;
-print_r($_SESSION['gh']);
-//session_destroy();
+//print_r($_SESSION['gh']);
 header('location:checkout.php');

@@ -13,6 +13,7 @@
 fieldset{width:50%; margin:100px auto;}
 .info{width:600px; color:#006; background:#6FC; margin:0 auto}
 </style>
+ <a href="../index.php">Thoát</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../manager.php">Trở lại</a><br><br>
 </head>
 
 <body>
