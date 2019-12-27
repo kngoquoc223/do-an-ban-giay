@@ -109,6 +109,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</li>
 					<li class="active"><a href="products.php?HOT=1">Hot</a></li>
 					<li class="active"><a href="login.php">admin</a></li>
+					<li class="active"><a href="https://github.com/kngoquoc223/do-an-ban-giay">Link Down</a></li>
 				</ul>
 			</div>
 			<div class="clearfix"> </div>

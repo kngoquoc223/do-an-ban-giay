@@ -20,7 +20,7 @@ fieldset{width:20%; margin:100px auto;}
 	<fieldset>
 	<legend style="margin:0 auto">Đăng nhập admin</legend>
 	<form action="loginData.php" method="post" align="center">
-		User<input type="text" name="id"><br>
+		User<input type="text" name="id" value="root"><br>
 		Pass<input type="password" 
 		name="pass"><br>
 		<input type="submit" name="sm" value="Login" >&emsp;</input><a href="signup.php">Đăng kí</a>

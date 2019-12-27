@@ -156,11 +156,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li class="ring-in"><a href="single.php?id=<?php echo $v2['Ma_Giay']; ?>" ><img src="./images/<?php echo $v2['img'] ; ?>" width=100 class="img-responsive" alt=""></a>
 							</li>
 							<li><?php echo $v2['Ten_Giay']?></li>
-							<li><?php echo $v2['Gia']?></li>
+							<li><?php $gia= number_format($v2['Gia']);
+							echo $gia;?></li>
 							<li><?php echo $value['size'] ?></li>
 							<li><?php echo $value['soluong']?></li>
 							
-							<li> <a href="Giohang.php?ac=delete&key=<?php echo $key;?>" class="add-cart cart-check">XÓA</a></li>
+							<li> <a href="Giohang.php?ac=delete&key=<?php echo $key;?>" class="add-cart cart-check">XÓA</a>&nbsp;&nbsp;&nbsp;&nbsp;
+							 <a href="single.php?ac=update&id=<?php echo $v2['Ma_Giay'];?>&key=<?php echo $key;?>" class="add-cart cart-check">SỬA</a></li>
 						<div class="clearfix"> </div>
 					</ul>
 				<?php

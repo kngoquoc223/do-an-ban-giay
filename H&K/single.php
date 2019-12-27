@@ -10,7 +10,9 @@ if (!isset($_SESSION)) session_start();
 $gh = isset($_SESSION['gh'])?$_SESSION['gh']:array();
   	$id = $_GET['id'];
 	$data = $obj->query("select * from giay where Ma_Giay= '$id' ");
-	$giay = $data ->fetch();	
+	$giay = $data ->fetch();
+	$ac = isset($_REQUEST['ac'])?$_REQUEST['ac']:'add';	
+	$key = isset($_REQUEST['key'])?$_REQUEST['key']:'';	
 	
  ?>
 <!DOCTYPE html>
@@ -189,7 +191,8 @@ $(window).load(function() {
     					<option value="42" >42</option>
 							</select>
 						<input type="hidden" name="ma" value="<?php echo $giay['Ma_Giay'] ?>">
-						<input type="hidden" name="ac" value="add">
+						<input type="hidden" name="ac" value="<?php echo $ac ?>">
+						<input type="hidden" name="key" value="<?php echo $key ?>">
 						<div class="single-but item_add">
 					<input type="submit" value="Thêm vào GH" name="submit">
 				</div>

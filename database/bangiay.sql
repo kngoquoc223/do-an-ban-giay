@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2019 at 12:58 PM
+-- Generation Time: Dec 27, 2019 at 12:17 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -52,6 +52,7 @@ INSERT INTO `giay` (`Ma_Giay`, `Ten_Giay`, `Gia`, `img`, `ID_NhaSanXuat`, `Ma_Lo
 ('NB_01', 'New Balance N-BACK', 2650000, 'Newbalance 530.jpg', 'NB', 'LS', 15, 1),
 ('NB_02', 'Newbalance Freshfoam', 990000, 'Newbalance Freshfoam.jpg', 'NB', 'SP', 12, 1),
 ('NB_03', 'New Balance TEAM AWAY GREY', 2190000, '9e9cfa56dc7a4bdf8e5b76cf893daaf8.jpg', 'NB', 'SP', 6, 1),
+('sad', 'sadsad', 1212, '', 'CV', 'LS', 9, 0),
 ('VS_01', 'Vans Old Skool Red', 800000, 'Vans Old Skool.jpg', 'VS', 'SP', 10, 1),
 ('VS_02', 'Sneaker Unisex Sk8 Hi Vans', 2160000, 'ss.jpg', 'VS', 'LS', 32, 1),
 ('VS_03', 'Vans Slip On', 2699000, 'Vans Slip On.jpg', 'VS', 'LS', 4, 0);
@@ -146,7 +147,8 @@ CREATE TABLE `thanhvien` (
 
 INSERT INTO `thanhvien` (`id_tv`, `password`, `name`) VALUES
 ('huy', '202cb962ac59075b964b07152d234b70', 'minh huy'),
-('khanh', '202cb962ac59075b964b07152d234b70', 'quoc khanh');
+('khanh', '202cb962ac59075b964b07152d234b70', 'quoc khanh'),
+('root', 'd41d8cd98f00b204e9800998ecf8427e', '');
 
 --
 -- Indexes for dumped tables

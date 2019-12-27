@@ -23,8 +23,25 @@ $gh = isset($_SESSION['gh'])?$_SESSION['gh']:array();
 
 if ($ac=='add')
 {
-	$gh[]=$sanpham;
+	$flag=0;
+	$num=-1;
+	$key2=-1;
+	foreach ($gh as $k => $value) {
+		if($ma==$value['ma']&&$size==$value['size']){
+			//echo $value['soluong'];
+			$num=$value['soluong']+$soluong;
+			$key2=$k;
+			$flag=1;
+			//echo $value['soluong'];
+		}
+	}
+	if($flag==0)
+		$gh[]=$sanpham;
+	if($num!=-1)
+		$gh[$key2]['soluong']=$num;
+
 }
+//echo $gh[$key]['soluong'];
 if ($ac=='delete')
 {
 	unset($gh[$key]);
@@ -32,12 +49,14 @@ if ($ac=='delete')
 }
 if ($ac=='update')
 {
-	if (isset($gh[$id])) $gh[$id]= $sl;
+	$gh[$key]=$sanpham;
+
 }
 if ($ac=='deleteALL')
 {
 	session_destroy();
 }
+
 $_SESSION['gh']= $gh;
 //print_r($_SESSION['gh']);
 header('location:checkout.php');

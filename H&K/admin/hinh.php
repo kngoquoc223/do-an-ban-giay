@@ -25,9 +25,10 @@ fieldset{width:50%; margin:100px auto;}
 <body>
 	<?php 
 	$filehinh='';
+	$error="";
 	if(isset($_FILES['file']))
 	{
-		$error="";
+		
 		$tim="/jpg/";
 		if(preg_match($tim,$_FILES['file']['name']))
 		{
@@ -65,7 +66,8 @@ if ($filehinh !='')
 
 $sql= "UPDATE giay SET img = '$namehinh' WHERE giay.Ma_Giay = '$id'";
 		$obj->query($sql);
-}if($error!="")
+}
+if($error!="")
 {
 ?>
  <div class="info">
